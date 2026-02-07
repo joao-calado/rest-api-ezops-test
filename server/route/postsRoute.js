@@ -5,7 +5,9 @@ const postsService = require('../service/postsService');
 router.get('/posts', async function (req, res, next) {
 	try {
 		const posts = await postsService.getPosts();
-		res.json(posts);
+		res.json({
+			data: posts
+		});
 	} catch (e) {
 		next(e);
 	}
